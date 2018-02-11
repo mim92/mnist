@@ -1,5 +1,5 @@
 from keras.models import load_model
-from data_gen import prepare_mnist_data
+from CNN_Autoencoder.data_gen import prepare_mnist_data
 import numpy as np
 
 
@@ -14,11 +14,11 @@ def predict_accuracy(x_batch, y_batch, model):
 
 
 if __name__ == '__main__':
-    model_path = 'model/MNIST_test_epoch_01_model.hdf5'
+    model_path = 'model/MNIST_test_epoch_02_model.hdf5'
     model = load_model(model_path)
 
     (_, _), (x_test, y_test) = prepare_mnist_data()
 
-    predict_accuracy(x_test[:10], y_test[:10], model)
+    predict_accuracy(x_test, y_test, model)
 
 

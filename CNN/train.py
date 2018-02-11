@@ -1,7 +1,7 @@
 from keras.optimizers import SGD
 from keras.losses import categorical_crossentropy
 from model import prepare_simple_CNN_model, ModelSave
-from data_gen import prepare_mnist_data
+from CNN_Autoencoder.data_gen import prepare_mnist_data
 import argparse
 
 if __name__ == '__main__':

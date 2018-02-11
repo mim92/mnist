@@ -45,5 +45,5 @@ def prepare_simple_CNN_model(input_shape=(28, 28, 1), class_num=10):
 
 
 if __name__ == '__main__':
-    model = prepare_test_model()
-    plot_model(model, to_file='model.png', show_shapes=True, rankdir='TB')
+    model = prepare_simple_CNN_model()
+    plot_model(model, to_file='model_CNN.png', show_shapes=True, rankdir='TB')
