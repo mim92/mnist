@@ -20,7 +20,8 @@ def prepare_model(input_shape=(28, 28, 1), class_num=10):
     input = Input(input_shape)
     kernel_size = (3, 3)
     max_pool_size = (2, 2)
-    
+    upsampling_size = (2, 2)
+
     enc_cnn = Conv2D(64, kernel_size, padding='same', activation='relu')(input)
     enc_cnn = Dropout(0.1)(enc_cnn)
     enc_cnn = Conv2D(64, kernel_size, padding='same', activation='relu')(enc_cnn)
@@ -40,9 +41,9 @@ def prepare_model(input_shape=(28, 28, 1), class_num=10):
     fc = Dense(1024, activation='relu')(fc)
     softmax = Dense(class_num, activation='softmax', name='classification')(fc)
 
-    dec_cnn = UpSampling2D((2, 2))(enc_cnn)
+    dec_cnn = UpSampling2D(upsampling_size)(enc_cnn)
     dec_cnn = Conv2D(64, kernel_size, padding='same', activation='relu')(dec_cnn)
-    dec_cnn = UpSampling2D((2, 2))(dec_cnn)
+    dec_cnn = UpSampling2D(upsampling_size)(dec_cnn)
     dec_cnn = Conv2D(1, kernel_size, padding='same', activation='sigmoid', name='autoencoder')(dec_cnn)
 
     outputs = [softmax, dec_cnn]

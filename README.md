@@ -1,8 +1,8 @@
-# CNNのサンプルコード
+# MNISTのサンプルコード
 
-```
-
-```
+## モデル
+- CNN
+- CNN + Autoencoder
 
 ## 学習
 
